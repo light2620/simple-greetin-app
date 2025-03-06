@@ -1,22 +1,24 @@
 import { useState } from 'react' 
 import axios from 'axios'
-import toast, { Toaster } from 'react-hot-toast'; 
+
 
 
 function App() {
     const [name, setName] = useState(""); // State to store user input
-
+    const [message, setMessage] = useState(""); // Stores success/error message
+    const [messageType, setMessageType] = useState(""); // "success" or "error"
     // Function to fetch greeting from the API
     async function greet() { 
         try {
-            // Sending GET request to API with the name as a query parameter
-            const response = await axios.get(`${import.meta.env.VITE_GREETING_API}api/greet?name=${name}`);
-            
-            // Display success message using toast notification
-            toast.success(response.data.message);
+            // Sending GET request to API with the name as a query parameter 
+            const response = await axios.get(`${import.meta.env.VITE_GREETING_API}api/greet?name=${name}`); // Getting Backend URL From .env File
+            setMessage(response.data.message); // Setting Success Message
+            setMessageType("success");  // Setting messgeType To Sucess
+           
         } catch (err) {
-            // Display error message if API call fails
-            if(err.response.data)toast.error(err.response.data.error);
+            const errorMsg = err.response?.data?.error || "Something went wrong!";
+            setMessageType("error"); // Setting messageType To Error
+            setMessage(errorMsg); // Setting Message
             
         }
     }
@@ -42,9 +44,12 @@ function App() {
                 >
                     Get Greeting
                 </button>
-
-                {/* Toast notifications */}
-                <Toaster />
+                {/* Success or Error Message */}
+                {message && (
+                    <p className={`mt-4 p-2 rounded text-sm ${messageType === "success" ? "text-green-600 bg-green-100" : "text-red-600 bg-red-100"}`}>
+                        {message}
+                    </p>
+                )}
             </div>
         </div>
     );
