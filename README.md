@@ -19,5 +19,5 @@ A simple web application that allows users to enter their name and receive a per
 ---
 
 ## 🚀 Live Demo
-🔗 **Frontend**:  
-🔗 **Backend**:  
+🔗 **Frontend**: https://simple-greetin-app-23kw.vercel.app/ 
+🔗 **Backend**:  https://simple-greetin-app.vercel.app/
