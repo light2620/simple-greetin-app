@@ -6,13 +6,12 @@ A simple web application that allows users to enter their name and receive a per
 ✅ User enters their name and gets a greeting  
 ✅ Success and error messages displayed on the page  
 ✅ Responsive design with TailwindCSS  
-✅ Toast notifications for better user experience  
 ✅ Deployed on Vercel  
 
 ---
 
 ## 🛠️ Tech Stack
-- **Frontend**: React, TailwindCSS, Axios, React-Hot-Toast  
+- **Frontend**: React, TailwindCSS, Axios  
 - **Backend**: Express.js, Node.js, CORS, dotenv  
 - **Database**: No database required  
 - **Deployment**: Vercel  
