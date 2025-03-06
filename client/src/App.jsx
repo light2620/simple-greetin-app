@@ -10,13 +10,14 @@ function App() {
     async function greet() { 
         try {
             // Sending GET request to API with the name as a query parameter
-            const response = await axios.get(`${import.meta.env.VITE_GREETING_API}/api/greet?name=${name}`);
+            const response = await axios.get(`${import.meta.env.VITE_GREETING_API}api/greet?name=${name}`);
             
             // Display success message using toast notification
             toast.success(response.data.message);
         } catch (err) {
             // Display error message if API call fails
-            toast.error(err.response.data.error);
+            if(err.response.data)toast.error(err.response.data.error);
+            
         }
     }
 
