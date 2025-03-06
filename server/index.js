@@ -8,7 +8,7 @@ const app = express(); // Creating an instance of Express
 dotenv.config(); // Loading environment variables from .env file
 
 app.use(express.json()); // Middleware to parse incoming JSON requests
-app.use(cors()); // Enabling CORS for handling cross-origin requests
+app.use(cors({origin : "*"})); // Enabling CORS for handling cross-origin requests
 
 const PORT = process.env.PORT; // Defining the server port from environment variables
 
